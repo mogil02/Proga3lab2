@@ -10,6 +10,6 @@ public:
     service(string name, int cost);
     service(string name);
     service();
-    void service_input(service);
-    void service_output(service);
+    void service_input();
+    void service_output();
 };

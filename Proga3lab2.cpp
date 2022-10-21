@@ -4,31 +4,52 @@ int main()
 {
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
-    printf("Введите количество сделок. ");
     int count;
-    while ((count = get_int()) < 1);
-    deal* deals = (deal*)malloc(count * sizeof(deal));
-    puts("Введите данные.");
-    for (int i = 0; i < count; i++) {
-        printf("Сделка номер %d:\n", i + 1);
-        deals[i] = deal_input();
-        puts("");
-    }
-    printf("\nВывод всех сделок deals\n");
-    for (int i = 0; i < count; i++) {
-        printf("Сделка номер %d:\n", i + 1);
-        deal_output(i + 1, deals[i]);
-        printf("Суммарная соимость авто и доп. услуги: %d\n", sum_costs(deals[i]));
-        puts("");
-    }
+    string crname = "Форд Фокус";
+    deal deal1, * deals[3];
+    deal deal2(crname);
+    manager Manager(10, "Иванов А.А.");
+    specifications spec(78, 133, 1, 1.5);
+    car Car(400000, "Лада Самара", spec);
+    client Client(12, "Шнейдер А.Д.");
+    service Service("Установка сигнализации", 20100);
+    deal deal3(Car, Client, Manager, Service);
 
-    puts("\n");
-    puts("Инициализация поля Car объекта deals и вывод в консоль.");
-    puts("До инициализации.");
-    car_output(deals[0].Car);
-    deals[0].Car = car_init(260000, "Toyota corolla", 110, 172, 2, 1.6);
-    puts("\nПосле инициализации.");
-    car_output(deals[0].Car);
-    system("pause");
+    cout << "Вывод сделок, созданных конструкторами:\n" << endl;
+    deal1.deal_output();
+    cout << endl;
+    deal2.deal_output();
+    cout << endl;
+    deal3.deal_output();
+    cout << endl;
+    cout << "Суммарная трата клиента за третью сделку: " << deal3.sum_costs() << endl;
+    cout << "\nВведите размер массива объектов: ";
+    cin >> count;
+    deal* arrDeal = new deal[count]; //динамический массив объектов класса deal.
+    for (int i = 0; i < count; i++) {
+        (arrDeal + i)->deal_input();
+        puts("");
+        (arrDeal + i)->deal_output();
+        cout << "\n" << endl;
+    }
+    delete[] arrDeal;
+    deal* Deal = new deal;
+    *Deal = deal1;
+    cout << "\nСделка 1:" << endl;
+    deal1.deal_output();
+    cout << endl;
+    (*Deal).deal_output();
+    cout << endl;
+    cout << endl;
+    delete Deal;
+
+    //Работа с динамическим массивом объектов класса deal.
+    deals[0] = &deal1;
+    deals[1] = &deal2;
+    deals[2] = &deal3;
+    for (int i = 0; i < 3; i++) {
+        deals[i]->deal_output();
+        cout << endl;
+    }
     return 0;
 }

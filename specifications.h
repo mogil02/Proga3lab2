@@ -18,6 +18,6 @@ public:
     specifications(int pow);
     specifications();
     string trans_name(int trans_id);
-    void spec_input(specifications);
-    void spec_output(specifications);
+    void spec_input();
+    void spec_output();
 };

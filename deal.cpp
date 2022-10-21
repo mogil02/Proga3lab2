@@ -1,25 +1,44 @@
 #include "deal.h"
 
-deal deal_input() {
-	deal Deal;
-	Deal.Manager = manager_input();
-	Deal.Client = client_input();
-	Deal.Car = car_input();
-	Deal.Service = service_input();
-	return Deal;
+deal::deal(car Cr, client Cl, manager Mn, service Sv) {
+	Car = Cr;
+	Client = Cl;
+	Manager = Mn;
+	Service = Sv;
 }
-
-void deal_output(int num, deal tab) {
-	printf("Детали сделки номер %3d.\n", num);
-	manager_output(tab.Manager);
-	client_output(tab.Client);
-	service_output(tab.Service);
-	car_output(tab.Car);
-	puts("");
-
+deal::deal(car Cr) {
+	Car = Cr;
+	manager m(0);
+	client c(0);
+	service s;
+	Manager = m;
+	Client = c;
+	Service = s;
 }
-int sum_costs(deal d) {
-	int total = 0;
-	total = d.Car.car_cost + d.Service.service_cost;
-	return total;
+deal::deal() {
+	car cr;
+	manager m;
+	client c;
+	service s;
+	Car = cr;
+	Manager = m;
+	Client = c;
+	Service = s;
+}
+void deal::deal_input() {
+	Car.car_input();
+	Manager.manager_input();
+	Client.client_input();
+	Service.service_input();
+}
+void deal::deal_output() {
+	Car.car_output();
+	Manager.manager_output();
+	Client.client_output();
+	Service.service_output();
+}
+int deal::sum_costs() {
+	int sum;
+	sum = Car.car_cost + Service.service_cost;
+	return sum;
 }

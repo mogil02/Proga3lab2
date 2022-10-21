@@ -11,6 +11,6 @@ public:
 	client(int id, string name);
 	client(int id);
 	client();
-	void input(client);
-	void client_output(client);
+	void client_input();
+	void client_output();
 };

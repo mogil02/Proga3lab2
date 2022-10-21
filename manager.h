@@ -11,6 +11,6 @@ public:
 	manager(int id, string name);
 	manager(int id);
 	manager();
-	void input(manager);
-	void client_output(manager);
+	void manager_input();
+	void manager_output();
 };

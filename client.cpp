@@ -1,23 +1,26 @@
 #include "client.h"
 
-client client_input() {
-	client Client;
-	do {
-		printf("Введите ФИО клиента: ");
-		Client.client_FIO = get_string();
-	} while (Client.client_FIO[0] == 0);
-	printf("Введите id клиента. ");
-	Client.client_id = get_int();
-	return Client;
-};
+client::client(int id, string name) {
+	client_id = id;
+	client_FIO = name;
+}
+client::client(int id) {
+	client_id = id;
+	client_FIO = "Имя не указано.";
+}
+client::client() {
+	client_id = 0;
+	client_FIO = "Имя не указано.";
+}
+void client::client_input() {
+	cout << "Введите id клиента: ";
+	cin >> client_id;
+	while (getchar() != '\n');
+	cout << "Введите ФИО клиента: ";
+	getline(cin, client_FIO);
 
-client client_init(int id, const char* FIO) {
-	client Client{};
-	Client.client_FIO = strcpy_d(Client.client_FIO, FIO);
-	Client.client_id = id;
-	return Client;
-};
-
-void client_output(client obj) {
-	printf("ФИО клиента: %s\n", obj.client_FIO);
-};
+}
+void client::client_output() {
+	cout << "id клиента: " << client_id << endl;
+	cout << "ФИО клиента: " << client_FIO << endl;
+}

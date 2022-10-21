@@ -12,10 +12,10 @@ private:
     manager Manager;
     service Service;
 public:
-    deal(car Car, client Client, manager Manager, service Service);
-    deal(car Car);
+    deal(car Cr, client Cl, manager Mn, service Sv);
+    deal(car Cr);
     deal();
-    void deal_input(deal);
-    void deal_output(deal);
-    int sum_costs(deal);
+    void deal_input();
+    void deal_output();
+    int sum_costs();
 };

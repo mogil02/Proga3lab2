@@ -1,23 +1,25 @@
 #include "service.h"
 
-service service_input() {
-	service Service;
-	do {
-		printf("Введите название услуги: ");
-		Service.service_name = get_string();
-	} while (Service.service_name[0] == 0);
-	printf("Введите стоимость услуги. ");
-	Service.service_cost = get_int();
-	return Service;
-};
-
-service service_init(const char* str, int cost) {
-	service Service{};
-	Service.service_name = strcpy_d(Service.service_name, str);
-	Service.service_cost = cost;
-	return Service;
-};
-
-void service_output(service obj) {
-	printf("Название доп. услуги: %s Стоимость: %d руб.\n", obj.service_name, obj.service_cost);
-};
+service::service(string name, int cost) {
+	service_name = name;
+	service_cost = cost;
+}
+service::service(string name) {
+	service_name = name;
+	service_cost = 0;
+}
+service::service() {
+	service_name = "Название не указано.";
+	service_cost = 0;
+}
+void service::service_input() {
+	cout << "Введите название услуги: ";
+	getline(cin, service_name);
+	cout << "Введите стоимость услуги: ";
+	cin >> service_cost;
+	while (getchar() != '\n');
+}
+void service::service_output() {
+	cout << "Название услуги: " << service_name << endl;
+	cout << "Стоимость услуги: " << service_cost << endl;
+}

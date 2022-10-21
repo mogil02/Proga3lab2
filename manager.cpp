@@ -1,23 +1,26 @@
 #include "manager.h"
 
-manager manager_input() {
-	manager Manager;
-	do {
-		printf("Введите ФИО менеджаера: ");
-		Manager.manager_FIO = get_string();
-	} while (Manager.manager_FIO[0] == 0);
-	printf("Введите id менеджера. ");
-	Manager.manager_id = get_int();
-	return Manager;
-};
+manager::manager(int id, string name) {
+	manager_id = id;
+	manager_FIO = name;
+}
+manager::manager(int id) {
+	manager_id = id;
+	manager_FIO = "Имя не указано.";
+}
+manager::manager() {
+	manager_id = 0;
+	manager_FIO = "Имя не указано.";
+}
+void manager::manager_input() {
+	cout << "Введите id менеджера: ";
+	cin >> manager_id;
+	while (getchar() != '\n');
+	cout << "Введите ФИО менеджера: ";
+	getline(cin, manager_FIO);
 
-manager manager_init(int id, const char * FIO) {
-	manager Manager{};
-	Manager.manager_FIO = strcpy_d(Manager.manager_FIO, FIO);
-	Manager.manager_id = id;
-	return Manager;
-};
-
-void manager_output(manager obj) {
-	printf("ФИО менеджера: %s\n", obj.manager_FIO);
-};
+}
+void manager::manager_output() {
+	cout << "id менеджера: " << manager_id << endl;
+	cout << "ФИО менеджера: " << manager_FIO << endl;
+}

@@ -13,6 +13,6 @@ public:
     car(int cost, string brand, specifications spec);
     car(string brand);
     car();
-    void car_input(car);
-    void car_output(car);
+    void car_input();
+    void car_output();
 };

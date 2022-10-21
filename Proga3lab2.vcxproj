@@ -129,7 +129,6 @@
   <ItemGroup>
     <ClCompile Include="car.cpp" />
     <ClCompile Include="client.cpp" />
-    <ClCompile Include="lib.cpp" />
     <ClCompile Include="manager.cpp" />
     <ClCompile Include="Proga3lab2.cpp" />
     <ClCompile Include="service.cpp" />
