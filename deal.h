@@ -5,13 +5,17 @@
 #include "manager.h"
 #include "service.h"
 
-typedef struct {
+class deal {
+private:
     car Car;
     client Client;
     manager Manager;
     service Service;
-} deal;
-
-deal deal_input();
-void deal_output(int, deal);
-int sum_costs(deal);
+public:
+    deal(car Car, client Client, manager Manager, service Service);
+    deal(car Car);
+    deal();
+    void deal_input(deal);
+    void deal_output(deal);
+    int sum_costs(deal);
+};

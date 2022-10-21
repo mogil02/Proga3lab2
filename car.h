@@ -2,13 +2,17 @@
 #include "lib.h"
 #include "specifications.h"
 
-typedef struct {
+class car
+{
+    friend class deal;
+private:
     int car_cost;
-    char *car_brand;
+    string car_brand;
     specifications Spec;
-
-} car;
-
-car car_input();
-car car_init(int cost, const char* brand, int en_pow, int max_spd, int trans_id, float vol);
-void car_output(car);
+public:
+    car(int cost, string brand, specifications spec);
+    car(string brand);
+    car();
+    void car_input(car);
+    void car_output(car);
+};

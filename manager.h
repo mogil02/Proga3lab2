@@ -1,11 +1,16 @@
 #pragma once
 #include "lib.h"
 
-typedef struct {
+class manager
+{
+	friend class deal;
+private:
 	int manager_id;
-	char *manager_FIO;
-} manager;
-
-manager manager_input();
-manager manager_init(int, const char*);
-void manager_output(manager);
+	string manager_FIO;
+public:
+	manager(int id, string name);
+	manager(int id);
+	manager();
+	void input(manager);
+	void client_output(manager);
+};

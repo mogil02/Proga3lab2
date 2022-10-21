@@ -1,11 +1,16 @@
 #pragma once
 #include "lib.h"
 
-typedef struct {
-    int client_id;
-    char *client_FIO;
-} client;
-
-client client_input();
-client client_init(int, const char*);
-void client_output(client);
+class client
+{
+	friend class deal;
+private:
+	int client_id;
+	string client_FIO;
+public:
+	client(int id, string name);
+	client(int id);
+	client();
+	void input(client);
+	void client_output(client);
+};

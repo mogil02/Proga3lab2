@@ -1,11 +1,15 @@
 #pragma once
 #include "lib.h"
 
-typedef struct {
-    char *service_name;
+class service {
+    friend class deal;
+private:
+    string service_name;
     int service_cost;
-} service;
-
-service service_input();
-service service_init(const char*, int);
-void service_output(service);
+public:
+    service(string name, int cost);
+    service(string name);
+    service();
+    void service_input(service);
+    void service_output(service);
+};
