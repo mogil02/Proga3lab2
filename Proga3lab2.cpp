@@ -8,7 +8,7 @@ int main()
     string crname = "Форд Фокус";
     deal deal1, * deals[3];
     deal deal2(crname);
-    manager Manager(10, "Иванов А.А.");
+    manager Manager(10, 4700, "Иванов А.А.");
     specifications spec(78, 133, 1, 1.5);
     car Car(400000, "Лада Самара", spec);
     client Client(12, "Шнейдер А.Д.");
@@ -22,7 +22,7 @@ int main()
     cout << endl;
     deal3.deal_output();
     cout << endl;
-    cout << "Суммарная трата клиента за третью сделку: " << deal3.sum_costs() << endl;
+    cout << "Суммарная плата клиента за третью сделку: " << deal3.sum_costs() << endl;
     cout << "\nВведите размер массива объектов: ";
     cin >> count;
     deal* arrDeal = new deal[count]; //динамический массив объектов класса deal.

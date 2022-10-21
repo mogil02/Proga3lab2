@@ -1,15 +1,17 @@
 #include "manager.h"
 
-manager::manager(int id, string name) {
+manager::manager(int id, int wages, string name) {
 	manager_id = id;
 	manager_FIO = name;
 }
 manager::manager(int id) {
 	manager_id = id;
+	manager_wages = 0;
 	manager_FIO = "Имя не указано.";
 }
 manager::manager() {
 	manager_id = 0;
+	manager_wages = 0;
 	manager_FIO = "Имя не указано.";
 }
 void manager::manager_input() {
@@ -18,9 +20,12 @@ void manager::manager_input() {
 	while (getchar() != '\n');
 	cout << "Введите ФИО менеджера: ";
 	getline(cin, manager_FIO);
-
+	cout << "Введите премию менеджера за сделку: ";
+	cin >> manager_wages;
+	while (getchar() != '\n');
 }
 void manager::manager_output() {
 	cout << "id менеджера: " << manager_id << endl;
 	cout << "ФИО менеджера: " << manager_FIO << endl;
+	cout << "Премия менеджера за сделку: " << manager_FIO << endl;
 }
