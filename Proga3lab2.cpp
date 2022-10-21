@@ -38,6 +38,7 @@ int main()
     cout << "\nСделка 1:" << endl;
     deal1.deal_output();
     cout << endl;
+    cout << "\nКопия сделки 1 с помощью new:" << endl;
     (*Deal).deal_output();
     cout << endl;
     cout << endl;

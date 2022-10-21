@@ -21,6 +21,5 @@ void client::client_input() {
 
 }
 void client::client_output() {
-	cout << "id клиента: " << client_id << endl;
 	cout << "ФИО клиента: " << client_FIO << endl;
 }

@@ -13,13 +13,13 @@ service::service() {
 	service_cost = 0;
 }
 void service::service_input() {
-	cout << "Введите название услуги: ";
+	cout << "Введите название доп. услуги: ";
 	getline(cin, service_name);
-	cout << "Введите стоимость услуги: ";
+	cout << "Введите стоимость доп. услуги: ";
 	cin >> service_cost;
 	while (getchar() != '\n');
 }
 void service::service_output() {
-	cout << "Название услуги: " << service_name << endl;
-	cout << "Стоимость услуги: " << service_cost << endl;
+	cout << "Название доп. услуги: " << service_name << endl;
+	cout << "Стоимость доп. услуги: " << service_cost << endl;
 }

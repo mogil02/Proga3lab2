@@ -2,6 +2,7 @@
 
 manager::manager(int id, int wages, string name) {
 	manager_id = id;
+	manager_wages = wages;
 	manager_FIO = name;
 }
 manager::manager(int id) {
@@ -25,7 +26,6 @@ void manager::manager_input() {
 	while (getchar() != '\n');
 }
 void manager::manager_output() {
-	cout << "id менеджера: " << manager_id << endl;
 	cout << "ФИО менеджера: " << manager_FIO << endl;
-	cout << "Премия менеджера за сделку: " << manager_FIO << endl;
+	cout << "Премия менеджера за сделку: " << manager_wages << endl;
 }
